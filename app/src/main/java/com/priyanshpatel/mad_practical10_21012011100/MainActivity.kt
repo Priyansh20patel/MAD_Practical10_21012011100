@@ -16,18 +16,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val fab: FloatingActionButton = findViewById(R.id.action_btn)
+        val fab: FloatingActionButton = findViewById(R.id.flo1)
         fab.setOnClickListener {
+
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     val data = HttpRequest().makeServiceCall(
                         "https://api.json-generator.com/templates/qjeKFdjkXCdK/data",
-                        "rbn0rerl1k0d3mcwgw7dva2xuwk780z1hxvyvrb1"
-                    )
+                        "dchj8v1b6qqdjzbqood1jgpachyfzlw58r540gru")
                     withContext(Dispatchers.Main) {
                         try {
-                            if (data != null)
-                                runOnUiThread { getPersonDetailsFromJson(data) }
+                            if(data != null)
+                                runOnUiThread{getPersonDetailsFromJson(data)}
                         } catch (e: Exception) {
                             e.printStackTrace()
                         }
@@ -36,39 +36,42 @@ class MainActivity : AppCompatActivity() {
                     e.printStackTrace()
                 }
             }
-
         }
     }
 
-
-    private fun getPersonDetailsFromJson(sJson: String?) {
+    private fun getPersonDetailsFromJson(sJson: String) {
         val personList = ArrayList<Person>()
         try {
+
             val jsonArray = JSONArray(sJson)
             for (i in 0 until jsonArray.length()) {
                 val jsonObject = jsonArray[i] as JSONObject
                 val person = Person(jsonObject)
                 personList.add(person)
             }
-            val personListView = findViewById<ListView>(R.id.listView)
-            personListView.adapter = PersonAdapter(this, personList)
+            val personadapter=findViewById<ListView>(R.id.listView)
+            personadapter.adapter = PersonAdapter(this, personList)
         } catch (ee: JSONException) {
             ee.printStackTrace()
         }
+
     }
 
+    fun setArrayToListView(){
 
-    fun setArraytoListView() {
-        val personListView = findViewById<ListView>(R.id.listView)
+
+        val personlistview=findViewById<ListView>(R.id.listView)
         val Array = arrayListOf<Person>(
-            Person("nljnl", "nlnk", "nklnkl", "nklnkl", "nllkl", 90.90, 909.90),
-            Person("nljnl", "nlnk", "nklnkl", "nklnkl", "nllkl", 90.90, 909.90),
-            Person("nljnl", "nlnk", "nklnkl", "nklnkl", "nllkl", 90.90, 909.90),
-            Person("nljnl", "nlnk", "nklnkl", "nklnkl", "nllkl", 90.90, 909.90),
-            Person("nljnl", "nlnk", "nklnkl", "nklnkl", "nllkl", 90.90, 909.90)
-
+            Person("1","Priyansh","","9265605089","Gandhinagar",90.90,909.90),
+            Person("2","Vishal","ladavavishal22@gmail.com","9081897151","Rajkot",90.90,909.90),
+            Person("3","jay","jay22@gmail.com","9081897152","Mehasana",90.90,909.90),
+            Person("4","vivek","vivek@gmail.com","9081897153","Morbi",90.90,909.90),
+            Person("5","jvk","jvk@gmail.com","9725240046","surat",90.90,909.90)
         )
-        personListView.adapter = PersonAdapter(this, arrayListOf())
+        personlistview.adapter=PersonAdapter(this,Array)
+
+
     }
+
 
 }
