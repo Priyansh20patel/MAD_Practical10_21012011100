@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,73 +10,68 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginHorizontal="50dp"
         app:cardElevation="20dp">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/MatrialButoon"
-                android:layout_width="64dp"
+                android:id="@+id/material_btn"
+                android:layout_width="65dp"
                 android:layout_height="64dp"
                 app:icon="@drawable/baseline_person_outline_24"
-                app:iconSize="50dp"
                 app:iconGravity="textStart"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:iconSize="40dp"
                 style="?materialIconButtonFilledStyle"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                android:id="@+id/layout1"
+
+                android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.098"
-                app:layout_constraintStart_toEndOf="@+id/MatrialButoon"
-                tools:layout_editor_absoluteY="0dp">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/tv_layout_1"
+                    android:id="@+id/person_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Person Name" />
+                    android:text="person Name" />
 
                 <TextView
-                    android:id="@+id/tv_layout_2"
+                    android:id="@+id/personnumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Contact" />
+                    android:text="Person Number" />
 
                 <TextView
-                    android:id="@+id/tv_layout_3"
+                    android:id="@+id/personemail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email_id" />
+                    android:text="Person Email" />
 
                 <TextView
-                    android:id="@+id/tv_layout_4"
+                    android:id="@+id/personaddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Address" />
-
+                    android:text="Person Address" />
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/MaterialButton2"
-                android:layout_width="64dp"
+                android:id="@+id/locationBtn"
+                style="?materialIconButtonFilledStyle"
+                android:layout_width="65dp"
                 android:layout_height="64dp"
-                android:layout_marginStart="248dp"
-                android:layout_marginTop="4dp"
                 app:icon="@drawable/baseline_add_location_24"
                 app:iconGravity="textStart"
-                app:iconSize="50dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                style="?materialIconButtonFilledStyle"/>
-
-
+                app:iconSize="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

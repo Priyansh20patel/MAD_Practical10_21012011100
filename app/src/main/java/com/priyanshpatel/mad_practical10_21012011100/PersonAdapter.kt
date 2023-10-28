@@ -8,19 +8,18 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
-import com.google.android.material.button.MaterialButton
 
-class PersonAdapter(context: Context,  val personArray:ArrayList<Person>):ArrayAdapter<Person>(context,0,personArray)
+class PersonAdapter( context: Context,val personArray:ArrayList<Person>):ArrayAdapter<Person>(context,0,personArray)
 {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view=LayoutInflater.from(context).inflate(R.layout.person_item,parent,false)
         val contact=getItem(position)
-        view.findViewById<TextView>(R.id.tv_layout_1).text = personArray[position].name
-        view.findViewById<TextView>(R.id.tv_layout_2).text = personArray[position].phoneNo
-        view.findViewById<TextView>(R.id.tv_layout_3).text = personArray[position].emailId
-        view.findViewById<TextView>(R.id.tv_layout_4).text = personArray[position].address
 
-        val button1: Button= view.findViewById(R.id.MaterialButton2)
+        view.findViewById<TextView>(R.id.person_name).text = contact?.name
+        view.findViewById<TextView>(R.id.personnumber).text = contact?.phoneNo
+        view.findViewById<TextView>(R.id.personemail).text = contact?.emailId
+        view.findViewById<TextView>(R.id.personaddress).text = contact?.address
+        val button1: Button = view.findViewById(R.id.locationBtn)
         button1.setOnClickListener {
             // Start the MapsActivity when button1 is clicked
             val intent = Intent(context, MapsActivity::class.java)
@@ -30,4 +29,3 @@ class PersonAdapter(context: Context,  val personArray:ArrayList<Person>):ArrayA
         return view
     }
 }
-

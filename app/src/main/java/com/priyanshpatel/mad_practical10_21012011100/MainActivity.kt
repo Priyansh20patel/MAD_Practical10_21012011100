@@ -12,11 +12,12 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val fab: FloatingActionButton = findViewById(R.id.flo1)
+        val fab: FloatingActionButton = findViewById(R.id.swapBtn)
         fab.setOnClickListener {
 
             CoroutineScope(Dispatchers.IO).launch {
@@ -49,8 +50,8 @@ class MainActivity : AppCompatActivity() {
                 val person = Person(jsonObject)
                 personList.add(person)
             }
-            val personlistView=findViewById<ListView>(R.id.listView)
-            personlistView.adapter = PersonAdapter(this, personList)
+            val personadapter=findViewById<ListView>(R.id.listView1)
+            personadapter.adapter = PersonAdapter(this, personList)
         } catch (ee: JSONException) {
             ee.printStackTrace()
         }
@@ -58,6 +59,5 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    }
 
-
+}
